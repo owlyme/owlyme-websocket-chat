@@ -1,0 +1,12 @@
+/.apt_generated/
+/node_modules/
+/transaction-logs/
+/.classpath
+/.project
+/.settings/
+/.factorypath
+
+# IntelliJ IDEA Project Files
+
+*.iml
+.idea/*
