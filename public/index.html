@@ -3,26 +3,39 @@
     <head>
         <meta charset="utf-8">
         <title>Chat-WebSocket-Nodejs-Example</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
         <link href="/styles.css" rel="stylesheet" />
     </head>
     <body>
-
-        <div id="owlyme-chat">
+        <div id="userlist"  class="userlist"></div>
+        <div id="owlyme-chat" class="owlyme-chat">
             <h2>Owlyme Chat 
-				<button id="login">login</button>
-				<button id="logout">logout</button>
+				<button id="login" class="login">login</button>
+				<button id="logout" class="logout">logout</button>
             </h2>
-            <div id="chat-window">
-                <div id="output"></div>
-                <div id="feedback"></div>
+            <div id="chat-window" class="chat-window">
+                <div id="output" class="output"></div>
+                <div id="feedback" class="feedback"></div>
             </div>
-            <input id="handle" type="text" placeholder="Handle" />
-            <input id="message" type="text" placeholder="Message" />
-            <button id="send">Send</button>
+            <input id="handle" class="handle" type="text" placeholder="Handle" />
+            <input id="message" class="message" type="text" placeholder="Message" />
+            <button id="send" class="send">Send</button>
+        </div>        
+
+        <div id="privateChat" class="privateChat">
+            <div id="owlyme-chat1" class="owlyme-chat">
+                <h2> Chat Private
+                </h2>
+                <div id="chat-window1" class="chat-window">
+                    <div id="output1" class="output"></div>
+                    <div id="feedback1" class="feedback"></div>
+                </div>
+                <input id="message1" class="message" type="text" placeholder="Message" />
+                <button id="send1" class="send">Send</button>
+            </div>
         </div>
-
-
     </body>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script src="https://cdn.bootcss.com/babel-polyfill/7.0.0-beta.1/polyfill.min.js"></script>
     <script src="/chat.js"></script>
 </html>
