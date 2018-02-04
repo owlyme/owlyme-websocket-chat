@@ -1,11 +1,11 @@
 // Make connection
 // var socket = io.connect('192.168.0.15:80');
 
-var socket = io({
-    autoConnect: false
-  }).connect('127.0.0.1:4000');
-
-console.log(socket)
+// var socket = io().connect('127.0.0.1:4000');
+var socket = io('127.0.0.1:4000',{
+  path: "/chat"
+})
+// console.log(socket)
 // Query DOM
 var message = $('#message'),
     handle = $('#handle'),

@@ -15,7 +15,14 @@ app.use(express.static('public'));
 // app.use(express.static('dist'));
 
 // Socket setup & pass server
-var io = socket(server)
+var io = socket(server,{
+  path: "/chat",
+  serveClient: false,
+  // below are engine.IO options
+  pingInterval: 10000,
+  pingTimeout: 5000,
+  cookie: false
+})
 
 let clientList=[]
 let sockets = {}
@@ -64,7 +71,18 @@ io.on('connection', (socket) => {
         console.log(data)
         sockets[data.id].emit('privatechat', data);//给指定的客户端发送消息
     });
+
+    // console.log('socket.client',socket.handshake)
+    io.clients((error, clients) => {
+      if (error) throw error;
+      console.log('clients' ,clients); // => [6em3d4TJP8Et9EMNAAAA, G5p55dHhGgUnLUctAAAB]
+    });
+
 });
+
+
+
+
 let index = 1
 // chatredis.client.zadd
 // chatredis.getZSet('owl', index, index+10, "withscores").then( (res)=>{

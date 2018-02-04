@@ -13,7 +13,7 @@
     "express": "^4.16.2",
     "fast-redis-cluster2": "^2.0.10",
     "redis": "^2.8.0",
-    "socket.io": "^2.0.4",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
