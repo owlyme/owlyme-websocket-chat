@@ -8,7 +8,7 @@ let index = 1
 // })
 
 module.exports = function(server){
-var ioClient = socket(server,{
+var io = socket(server,{
   path: "/privateChat",
   serveClient: false,
   // below are engine.IO options
@@ -20,7 +20,7 @@ let clientList=[]
 let sockets = {}
 let socketlist = []
 
-ioClient.on('connection', (socket) => {
+io.on('connection', (socket) => {
     socket.on('chat', function(data){
         console.log(data)
         socket.to(data.remoteSocketId).emit('chat', data);//给所有客户端发送
@@ -40,9 +40,9 @@ ioClient.on('connection', (socket) => {
     });
 
     // console.log('socket.client',socket.handshake)
-    ioClient.clients((error, clients) => {
+    io.clients((error, clients) => {
       if (error) throw error;
-      // console.log('clients' ,clients); // => [6em3d4TJP8Et9EMNAAAA, G5p55dHhGgUnLUctAAAB]
+       console.log('clients' ,clients); // => [6em3d4TJP8Et9EMNAAAA, G5p55dHhGgUnLUctAAAB]
     });
 });
 
